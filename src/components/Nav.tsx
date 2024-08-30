@@ -2,17 +2,17 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Logo from "../../public/vite.svg";
+import Logo from "../assets/logo.png";
 
 // import "./shared.scss";
 
 const navigation = [
   { name: "Home", href: "/" },
-  // { name: "About", href: "/#about" },
-  { name: "Internships", href: "/internship" },
-  { name: "Requirements", href: "/requirements" },
-  { name: "Resources", href: "/resources" },
-  { name: "Contact", href: "/contact" },
+  { name: "Research", href: "/research" },
+  { name: "Products", href: "/products" },
+  { name: "Safety", href: "/safety" },
+  // { name: "Education", href: "/education" },
+  { name: "Pricing", href: "/pricing" },
 ];
 
 export default function Nav() {
@@ -28,7 +28,7 @@ export default function Nav() {
           <div className="flex lg:flex-1 ">
             <a href="/" className="-m-1.5 p-1.5">
               {/* <span className="sr-only">Explained</span> */}
-              <img className="h-10 w-auto" src={Logo} alt="Logo" />
+              <img className="h-16 w-auto" src={Logo} alt="Logo" />
             </a>
           </div>
 
@@ -54,18 +54,13 @@ export default function Nav() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            {/* #2bfccf */}
             <a
               href="/Register"
-              className="p-2 px-5 text-sm bg-blue-600 rounded-sm m-2 icon"
+              className="p-2 px-5 text-sm bg-white rounded-sm m-2 icon"
               style={{ letterSpacing: "1px" }}
             >
-              <span className="text-white">Apply Now</span>
-            </a>
-            <a
-              href="/Join"
-              className="p-2 px-5 text-sm bg-transparent border border-blue-600  rounded-sm m-2 icon"
-            >
-              <span className="text-blue-600 ">Join Us</span>
+              <span className="text-black">Apply Now</span>
             </a>
           </div>
         </nav>
@@ -112,12 +107,6 @@ export default function Nav() {
                     style={{ letterSpacing: "1px" }}
                   >
                     <span className="text-white">Apply Now</span>
-                  </a>
-                  <a
-                    href="/Join"
-                    className="p-2 px-5 text-sm bg-transparent border border-black rounded-sm m-2 icon"
-                  >
-                    <span className="text-black">Join Us</span>
                   </a>
                 </div>
               </div>
