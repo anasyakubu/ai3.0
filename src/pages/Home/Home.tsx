@@ -1,11 +1,10 @@
 // import React from "react";
-
-import Nav from "../../components/Nav";
+import Hero from "../../sections/Hero/Hero";
 
 const Home = () => {
   return (
     <div className="text-white">
-      <Nav />
+      <Hero />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "../assets/logo.png";
+import { GoLinkExternal } from "react-icons/go";
 
 // import "./shared.scss";
 
@@ -57,10 +58,13 @@ export default function Nav() {
             {/* #2bfccf */}
             <a
               href="/Register"
-              className="p-2 px-5 text-sm bg-white rounded-sm m-2 icon"
+              className="p-3 px-6 text-md bg-white text-black rounded-full  m-2 icon flex gap-3"
               style={{ letterSpacing: "1px" }}
             >
-              <span className="text-black">Apply Now</span>
+              <span className="text-black">Start now</span>
+              <span className="py-1">
+                <GoLinkExternal />
+              </span>
             </a>
           </div>
         </nav>
@@ -103,10 +107,13 @@ export default function Nav() {
                 <div className="py-6 flex lg:flex-1 lg:justify-end">
                   <a
                     href="/Register"
-                    className="p-2 px-5 text-sm bg-black rounded-sm m-2 icon"
+                    className="p-3 px-6 text-md bg-white text-black rounded-full  m-2 icon flex gap-3"
                     style={{ letterSpacing: "1px" }}
                   >
-                    <span className="text-white">Apply Now</span>
+                    <span className="text-black">Start now</span>
+                    <span className="py-1">
+                      <GoLinkExternal />
+                    </span>
                   </a>
                 </div>
               </div>
