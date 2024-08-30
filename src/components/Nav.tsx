@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Logo from "../../src/assets/nym.png";
+import Logo from "../../public/vite.svg";
 
 // import "./shared.scss";
 
@@ -47,7 +47,7 @@ export default function Nav() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-black link"
+                className="text-sm font-semibold leading-6 text-white link"
               >
                 {item.name}
               </a>
