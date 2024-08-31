@@ -7,6 +7,7 @@ import Summerise from "../../assets/summerise.jpg";
 import Meeting from "../../assets/meeting.jpg";
 import Code from "../../assets/code.jpg";
 import GridSection from "../../sections/GridSection/GridSection";
+import Pricing from "../../sections/Pricing/Pricing";
 
 const Home = () => {
   return (
@@ -29,6 +30,7 @@ const Home = () => {
         image={Code}
       />
       <GridSection />
+      <Pricing />
     </div>
   );
 };
