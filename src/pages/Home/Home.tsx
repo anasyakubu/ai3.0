@@ -6,6 +6,7 @@ import RowSection from "../../sections/RowSection/RowSection";
 import Summerise from "../../assets/summerise.jpg";
 import Meeting from "../../assets/meeting.jpg";
 import Code from "../../assets/code.jpg";
+import GridSection from "../../sections/GridSection/GridSection";
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
         title="Generate and debug code. Automate repetitive tasks. Learn new APIs."
         image={Code}
       />
+      <GridSection />
     </div>
   );
 };
