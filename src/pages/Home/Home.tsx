@@ -3,7 +3,7 @@ import BestPrompt from "../../sections/BestPrompt/BestPrompt";
 import Hero from "../../sections/Hero/Hero";
 import RowSection from "../../sections/RowSection/RowSection";
 // import Image from "../../assets/site.png";
-import Summerise from "../../assets/code.jpg";
+import Summerise from "../../assets/site.png";
 import Meeting from "../../assets/meeting.jpg";
 import Code from "../../assets/code.jpg";
 import GridSection from "../../sections/GridSection/GridSection";
