@@ -8,6 +8,7 @@ import Meeting from "../../assets/meeting.jpg";
 import Code from "../../assets/code.jpg";
 import GridSection from "../../sections/GridSection/GridSection";
 import Pricing from "../../sections/Pricing/Pricing";
+import Join from "../../sections/Join/Join";
 
 const Home = () => {
   return (
@@ -31,6 +32,7 @@ const Home = () => {
       />
       <GridSection />
       <Pricing />
+      <Join />
     </div>
   );
 };
