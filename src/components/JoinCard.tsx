@@ -3,7 +3,7 @@ import PrimaryBtn from "./primaryBtn";
 
 const JoinCard = () => {
   return (
-    <div className="JoinCard bg-white rounded-xl text-black p-10 py-24 flex justify-center text-center">
+    <div className="JoinCard bg-white rounded-xl text-black p-5 py-24 flex justify-center text-center">
       <div className="">
         <h1 className="text-3xl leading-snug max-w-3xl mx-auto">
           Join thousands of teams redefining how they work with Chattybot
