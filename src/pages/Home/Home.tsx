@@ -9,6 +9,7 @@ import Code from "../../assets/code.jpg";
 import GridSection from "../../sections/GridSection/GridSection";
 import Pricing from "../../sections/Pricing/Pricing";
 import Join from "../../sections/Join/Join";
+import Footer from "../../sections/Footer/Footer";
 
 const Home = () => {
   return (
@@ -33,6 +34,7 @@ const Home = () => {
       <GridSection />
       <Pricing />
       <Join />
+      <Footer />
     </div>
   );
 };
