@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import { Toaster } from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Register from "./pages/Register/Register";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
 
         {/* Main content */}
         <div className="relative z-10 min-h-screen">
-          <Toaster position="top-center" toastOptions={{ duration: 2000 }} />
+          <ToastContainer />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
