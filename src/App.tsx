@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import { Toaster } from "react-hot-toast";
+import Register from "./pages/Register/Register";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
-              {/* <Route path="/internship" element={<Internship />} /> */}
+              <Route path="/register" element={<Register />} />
             </Routes>
           </BrowserRouter>
         </div>

@@ -5,9 +5,11 @@ import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY;
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBcq7LnFJ4aDUIr8TkPaRcNJ6dywwRUhRg",
+  apiKey: API_KEY,
   authDomain: "botz-ai.firebaseapp.com",
   projectId: "botz-ai",
   storageBucket: "botz-ai.appspot.com",
