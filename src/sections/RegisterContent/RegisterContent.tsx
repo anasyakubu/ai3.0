@@ -1,14 +1,101 @@
-// import React from 'react'
+import React, { useState } from "react";
 import "./RegisterContent.scss";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  UserCredential,
+} from "firebase/auth";
+import { auth, db } from "../../firebase/firebase";
+import {
+  setDoc,
+  doc,
+  getDoc,
+  DocumentReference,
+  DocumentData,
+} from "firebase/firestore";
 import { IoIosArrowBack } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
-const RegisterContent = () => {
+const RegisterContent: React.FC = () => {
+  // Signup with Google
+  const googleSignup = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result: UserCredential = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      if (user) {
+        // Check if the user already exists in the database
+        const userDocRef: DocumentReference<DocumentData> = doc(
+          db,
+          "Users",
+          user.uid
+        );
+        const userDoc = await getDoc(userDocRef);
+
+        if (!userDoc.exists()) {
+          // If user does not exist, create a new document in the "Users" collection
+          await setDoc(userDocRef, {
+            email: user.email,
+            firstName: user.displayName,
+            photo: user.photoURL,
+            lastName: "",
+          });
+          toast.success("User signed up successfully", {
+            position: "top-center",
+          });
+        } else {
+          toast.info("User already exists. Logging you in...", {
+            position: "top-center",
+          });
+        }
+
+        window.location.href = "/profile";
+      }
+    } catch (error) {
+      console.error("Error during Google sign-up:", error);
+      toast.error("Failed to sign up with Google. Please try again.", {
+        position: "top-center",
+      });
+    }
+  };
+
+  // Signup with email and Password
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [fullname, setFullname] = useState<string>("");
+
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      console.log(user);
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          fullName: fullname,
+          photo: "",
+        });
+      }
+      console.log("User Registered Successfully!!");
+      toast.success("User Registered Successfully!!");
+    } catch (error) {
+      // 'any' is used here to avoid TypeScript errors, can be replaced with specific Firebase error type
+      console.log(error);
+      toast.error("Error Encounter...", {
+        position: "bottom-center",
+      });
+    }
+  };
+
   return (
     <div className="RegisterContent text-white">
       <div className="p-64 py-10">
-        <form action="">
+        <form onSubmit={handleRegister}>
           <div className="">
             {/* Back Button */}
             <div className="">
@@ -37,6 +124,8 @@ const RegisterContent = () => {
                   className="input-style"
                   type="text"
                   placeholder="e.g : Anas Yakubu"
+                  onChange={(e) => setFullname(e.target.value)}
+                  required
                 />
               </div>
               <div className="mt-5">
@@ -45,8 +134,10 @@ const RegisterContent = () => {
                 </label>
                 <input
                   className="input-style"
-                  type="text"
+                  type="email"
                   placeholder="e.g : yakubuanas04@gmail.com"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -59,6 +150,8 @@ const RegisterContent = () => {
                 className="input-style"
                 type="password"
                 placeholder="*******"
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
             <div className="mt-5">
@@ -72,7 +165,9 @@ const RegisterContent = () => {
               </p>
             </div>
             <div className="mt-5">
-              <button className="btn">Register</button>
+              <button type="submit" className="btn">
+                Register
+              </button>
             </div>
             <div className="mt-5">
               <p className="text-sm">
@@ -86,9 +181,10 @@ const RegisterContent = () => {
               <button
                 type="button"
                 className="google-btn"
-                onClick={() => {
-                  toast.success("Not Available..");
-                }}
+                onClick={googleSignup}
+                // onClick={() => {
+                //   toast.success("Not Available..");
+                // }}
               >
                 <span className="py-1">
                   <FcGoogle size={15} />
