@@ -32,9 +32,9 @@ const LoginContent: React.FC = () => {
         });
         window.location.href = "/profile";
       }
-    } catch (error: any) {
-      console.error("Error signing in with Google:", error.message);
-      toast.error(error.message, {
+    } catch (error) {
+      console.error("Error signing in with Google:", error);
+      toast.error("Error while Login", {
         position: "bottom-center",
       });
     }
